@@ -1,0 +1,40 @@
+﻿@page
+@using ACME.Products.Localization
+@using ACME.Products.Web.Pages.Categories
+@using Microsoft.Extensions.Localization
+@using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.TagHelpers.Modal
+@model EditModalModel
+@inject IStringLocalizer<ProductsResource> L
+@{
+    Layout = null;
+}
+<form asp-page="/Categories/EditModal">
+    <abp-modal>
+        <abp-modal-header title="@L["Edit"].Value"></abp-modal-header>
+        <abp-modal-body>
+            <abp-input asp-for="Category.Id" />
+            <abp-input asp-for="Category.CategoryName" />
+            <abp-select asp-for="Category.ParentCategoryId" asp-items="Model.ParentCategories" />
+            <abp-input asp-for="Category.Description" />
+            <abp-input asp-for="Category.Picture" />
+            <abp-input asp-for="Category.UpdatedPicture"
+                       label="@L["Picture"].Value"
+                       hidden accept="image/*"
+                       onchange="(function t() { loadImagePreview('Category.UpdatedPicture', 'imgPreview',document.getElementsByName('Category.Picture').value ?? '/placeholders/th.jpg') })()" />
+            <div>
+                <img class="d-block mb-2" id="imgPreview" src="@(!string.IsNullOrWhiteSpace(Model.Category.Picture) ? $"data:image/png;base64,{Model.Category.Picture}" : "/placeholders/th.jpg" )" width="173" />
+                <button type="button" class="btn btn-sm btn-primary" onclick="(function(){ triggerFileInput('Category.UpdatedPicture'); })()">@L["ChoosePicture"].Value</button>
+                <button type="button"
+                        class="btn btn-sm btn-danger"
+                        onclick="(function t() {
+                                document.getElementById('imgPreview').setAttribute('src', '/placeholders/th.jpg');
+                                document.getElementById('Category.Picture')[0].value = '';
+                                clearFileInput('Category.UpdatedPicture');
+                        })()">
+                    @L["Delete"].Value
+                </button>
+            </div>
+        </abp-modal-body>
+        <abp-modal-footer buttons="@(AbpModalButtons.Cancel|AbpModalButtons.Save)"></abp-modal-footer>
+    </abp-modal>
+</form>

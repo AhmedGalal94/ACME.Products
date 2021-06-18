@@ -1,0 +1,40 @@
+﻿@page
+@using Microsoft.AspNetCore.Mvc.Localization
+@using ACME.Products.Localization
+@using Volo.Abp.Users
+@using ACME.Products.Permissions
+@using Microsoft.AspNetCore.Authorization
+@model ACME.Products.WebApp.Pages.IndexModel
+@inject IHtmlLocalizer<ProductsResource> L
+@inject ICurrentUser CurrentUser
+@inject IAuthorizationService AuthorizationService
+@section styles {
+
+}
+@section scripts {
+
+}
+<div class="container">
+    <div class="p-5 text-center">
+
+        <h1>Welcome to Products MVC Client</h1>
+        <p class="lead px-lg-5 mx-lg-5"></p>
+        @if (!CurrentUser.IsAuthenticated)
+        {
+<a abp-button="Primary" href="~/Account/Login"><i class="fa fa-sign-in"></i> @L["Login"]</a>
+}
+    </div>
+    <div class="card mt-4 mb-5">
+        <div class="card-body">
+            <div class="row text-center justify-content-md-center">
+                <div class="col-lg-6">
+                    <div class="p-4">
+                        <h5 class="mb-3"><i class="fas fa-book text-secondary d-block my-3 fa-2x"></i>Products</h5>
+                        <p>Products Navigations</p>
+                        <a asp-page="/Products/Index" class="btn btn-primary px-1">Products list</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

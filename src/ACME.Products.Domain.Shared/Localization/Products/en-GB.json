@@ -1,0 +1,34 @@
+{
+  "culture": "en-GB",
+  "texts": {
+    "Menu:Home": "Home",
+    "Welcome": "Welcome",
+    "LongWelcomeMessage": "Welcome to the application. This is a startup project based on the ABP framework. For more information, visit abp.io.",
+    "Permission:Products": "Products And Categoris",
+    "Permission:ProductsManagements": "Products Management",
+    "Permission:ProductsManagements.Create": "Creating new Products",
+    "Permission:ProductsManagements.Edit": "Editing the Products",
+    "Permission:ProductsManagements.Delete": "Deleting the Products",
+    "Permission:Categoris": "Categoris Management",
+    "Permission:Categoris.Create": "Creating new Categoris",
+    "Permission:Categoris.Edit": "Editing the Categoris",
+    "Permission:Categoris.Delete": "Deleting the Categoris",
+    "Menu:Categories": "Categories",
+    "Menu:Products": "Products",
+    "Edit": "Edit",
+    "Delete": "Delete",
+    "SuccessfullyDeleted": "record deleted successfully",
+    "Actions": "Actions",
+    "Description": "Description",
+    "Picture": "Picture",
+    "Categories": "Categories",
+    "NewCategory": "New Category",
+    "CategoryName": "Category Name",
+    "ParentCategory": "Parent Category",
+    "CategoryDeletionConfirmationMessage": "Are you sure you want to delete {0}",
+    "Products": "Products",
+    "NewProduct": "New Product",
+    "ProductDeletionConfirmationMessage": "Are you sure you want to delete {0}"
+  }
+ 
+}
